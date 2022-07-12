@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Previsão do Tempo</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <div>
+                <label class="Cidade" for="idCapital">Selecione uma Capital</label>
+                    <div class="Cidade"> 
+                        <select name="nmCidades" id="idCapital">
+                        <option value="455819">Brasília, DF</option>
+                        <option value="455904">Rio Branco, AC</option>
+                        <option value="455880">Maceió, AL</option>
+                        <option value="456030">Amapá, AP</option>
+                        <option value="455833">Manaus, AM</option>
+                        <option value="455826">Salvador, BA</option>
+                        <option value="455830">Fortaleza, CE</option>
+                        <option value="455922">Vitoria, ES</option>
+                        <option value="455831">Goiânia, GO</option>
+                        <option value="455834">São Luís, MA</option>
+                        <option value="455829">Cuiabá, MT</option>
+                        <option value="26804347">Campo Grande, MS</option>
+                        <option value="455821">Belo Horizonte, MG</option>
+                        <option value="455820">Belém, PA</option>
+                        <option value="455872">João Pessoa, PB</option>
+                        <option value="455822">Curitiba, PR</option>
+                        <option value="455824">Recife, PE</option>
+                        <option value="455835">Terezina, PI</option>
+                        <option value="455825">Rio de Janeiro, RJ</option>
+                        <option value="455888">Natal, RN</option>
+                        <option value="455823">Porto Alegre, RS</option>
+                        <option value="455901">Porto Velho, RO</option>
+                        <option value="455936">Boa Vista, RR</option>
+                        <option value="90200648">Florianópolis, SC</option>
+                        <option value="455827">São Paulo, SP</option>
+                        <option value="455839">Aracajú, SE</option>
+                        <option value="457721">Palmas, TO</option>
+                        </select>
+                    </div>
+                <div id="idBtChecar">Checar Previsão</div>
+            </div>
+        </fieldset>
+        <fieldset class="clDetalheHoje">
+            <div class="clDetalhes" id="idImagem"></div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="clCity" id="idCity">Cidade: -- </th>
+                        <th class="clClima" id="idClima">-----</th>
+                    </tr>
+                    <tr>
+                        <th class="clData" id="idData">Data: --/--/-- </th>
+                        <th class="clClima" id="idVento">Vento: -- km/h</th>
+                    </tr>
+                    <tr>
+                        <th class="clTemp" id="idTemp"> -- °C</th>
+                        <th class="clClima" id="idHumidade">Humidade: --</th>
+                    </tr>
+                </tbody>
+            </table>
+            </fieldset>
+        <fieldset id="idOutrosDias">
+            <fieldset id="idDia1" class="clDiasFuturos">
+                <div class="clImagem" id="idImagem1"></div>
+                <div class="clWeekDay" id="idWeekDay1">WeekDay: ---</div>
+                <div class="clTempMax" id="idTempMax1">Max: -- °C</div>
+                <div class="clTempMin" id="idTempMin1">Min: -- °C</div>
+                <div class="clData" id="idData1">--/--</div>
+            </fieldset>
+            <fieldset id="idDia2" class="clDiasFuturos">
+                <div class="clImagem" id="idImagem2"></div>
+                <div class="clWeekDay" id="idWeekDay2">WeekDay: ---</div>
+                <div class="clTempMax" id="idTempMax2">Max: -- °C</div>
+                <div class="clTempMin" id="idTempMin2">Min: -- °C</div>
+                <div class="clData" id="idData2">--/--</div>
+            </fieldset>
+            <fieldset id="idDia3" class="clDiasFuturos">
+                <div class="clImagem" id="idImagem3"></div>
+                <div class="clWeekDay" id="idWeekDay3">WeekDay: ---</div>
+                <div class="clTempMax" id="idTempMax3">Max: -- °C</div>
+                <div class="clTempMin" id="idTempMin3">Min: -- °C</div>
+                <div class="clData" id="idData3">--/--</div>
+            </fieldset>
+            <fieldset id="idDia4" class="clDiasFuturos">
+                <div class="clImagem" id="idImagem4"></div>
+                <div class="clWeekDay" id="idWeekDay4">WeekDay: ---</div>
+                <div class="clTempMax" id="idTempMax4">Max: -- °C</div>
+                <div class="clTempMin" id="idTempMin4">Min: -- °C</div>
+                <div class="clData" id="idData4">--/--</div>
+            </fieldset>
+            <fieldset id="idDia5" class="clDiasFuturos">
+                <div class="clImagem" id="idImagem5"></div>
+                <div class="clWeekDay" id="idWeekDay5">WeekDay: ---</div>
+                <div class="clTempMax" id="idTempMax5">Max: -- °C</div>
+                <div class="clTempMin" id="idTempMin5">Min: -- °C</div>
+                <div class="clData" id="idData5">--/--</div>
+            </fieldset>
+            </div>
+    </form>
+    <script>
+        var capital
+        var btChecar = document.querySelector("#idBtChecar")
+// problemas no codigo para executar imagem vou corrigir depois 
+       
+        var sol = '<img src="Imagens/image-removebg-preview (5).png">'
+        var solEntreNuvens = '<img src="Imagens/image-removebg-preview (6).png">'
+        var chuva = '<img src="Imagens/image-removebg-preview (7).png">'
+        var luaEntreNuvens = '<img src="Imagens/image-removebg-preview (8).png">'
+        var nublado = '<img src="Imagens/image-removebg-preview (9).png">'
+        var lua = '<img src="Imagens/image-removebg-preview (10).png">'
+
+// problemas no codigo na hora de executar imagem vou corrigir depois 
+        var imagem = document.querySelector("#idImagem")
+        var imagem1 = document.querySelector("#idImagem1")
+        var imagem2 = document.querySelector("#idImagem2")
+        var imagem3 = document.querySelector("#idImagem3")
+        var imagem4 = document.querySelector("#idImagem4")
+        var imagem5 = document.querySelector("#idImagem5")
+
+        
+
+        var tempAgora = document.querySelector("#idTemp")
+
+        var cidade = document.querySelector("#idCity")
+        var tempMin1 = document.querySelector("#idTempMin1")
+        var tempMin2 = document.querySelector("#idTempMin2")
+        var tempMin3 = document.querySelector("#idTempMin3")
+        var tempMin4 = document.querySelector("#idTempMin4")
+        var tempMin5 = document.querySelector("#idTempMin5")
+
+        var tempMax1 = document.querySelector("#idTempMax1")
+        var tempMax2 = document.querySelector("#idTempMax2")
+        var tempMax3 = document.querySelector("#idTempMax3")
+        var tempMax4 = document.querySelector("#idTempMax4")
+        var tempMax5 = document.querySelector("#idTempMax5")
+
+
+        var humidade = document.querySelector("#idHumidade")
+        var vento = document.querySelector("#idVento")
+        var clima = document.querySelector("#idClima")
+
+
+        var data = document.querySelector("#idData")
+        var data1 = document.querySelector("#idData1")
+        var data2 = document.querySelector("#idData2")
+        var data3 = document.querySelector("#idData3")
+        var data4 = document.querySelector("#idData4")
+        var data5 = document.querySelector("#idData5")
+
+
+        var weekDay1 = document.querySelector("#idWeekDay1")
+        var weekDay2 = document.querySelector("#idWeekDay2")
+        var weekDay3 = document.querySelector("#idWeekDay3")
+        var weekDay4 = document.querySelector("#idWeekDay4")
+        var weekDay5 = document.querySelector("#idWeekDay5")
+
+        
+
+        btChecar.onclick = async function () {            
+            capital = document.querySelector("#idCapital").value
+
+            let previsão = await previsãoDoTempo(capital)
+            
+            let base = previsão.results
+
+            gerarPrevisãoPrincipal(previsão, base)
+            gerarPrevisõesFuturas(previsão, base)
+        }
+
+        async function previsãoDoTempo(capital) {
+            let resposta = await fetch("https://api.hgbrasil.com/weather?format=json-cors&woeid="+capital+"")
+            return resposta.json()
+        }
+
+        
+        function gerarPrevisãoPrincipal(previsão, base){
+            cidade.innerHTML = "Cidade: " + base.city_name
+            data.innerHTML = "Data: " + base.date
+            tempAgora.innerHTML = base.temp + " °C"
+            clima.innerHTML = base.description
+            vento.innerHTML = "Vento: " + base.wind_speedy
+            humidade.innerHTML = "Humidade: " + base.humidity
+
+
+            if (base.condition_slug == "cloud") {
+                imagem.innerHTML = nublado
+
+            } else if (base.condition_slug == "cloudly_night") {
+                imagem.innerHTML = luaEntreNuvens
+
+            } else if (base.condition_slug == "clear_night") {
+                imagem.innerHTML = lua
+
+            } else if (base.condition_slug == "cloudly_day") {
+                imagem.innerHTML = solEntreNuvens
+                
+            } else if (base.condition_slug == "clear_day") {
+                imagem.innerHTML = sol
+                
+            } else if (base.condition_slug == "rain") {
+                imagem.innerHTML = chuva
+            }
+        }
+
+          function gerarPrevisõesFuturas(previsão, base) {
+            gerarPrevisãoDia1(previsão, base)
+            gerarPrevisãoDia2(previsão, base)
+            gerarPrevisãoDia3(previsão, base)
+            gerarPrevisãoDia4(previsão, base)
+            gerarPrevisãoDia5(previsão, base)
+        }
+
+        function gerarPrevisãoDia1(previsão, base) {
+            let indexador = 0
+
+            weekDay1.innerHTML = "WeekDay: " + base.forecast[indexador].weekday
+            tempMax1.innerHTML = "Max: " + base.forecast[indexador].max + " °C"
+            tempMin1.innerHTML = "Min: " + base.forecast[indexador].min + " °C"
+            data1.innerHTML = base.forecast[indexador].date
+            imagem1.innerHTML = determinarImagenFuturas(base, indexador)
+        }
+
+        function gerarPrevisãoDia2(previsão, base) {
+            let indexador = 1
+
+            weekDay2.innerHTML = "WeekDay: " + base.forecast[indexador].weekday
+            tempMax2.innerHTML = "Max: " + base.forecast[indexador].max + " °C"
+            tempMin2.innerHTML = "Min: " + base.forecast[indexador].min + " °C"
+            data2.innerHTML = base.forecast[indexador].date
+            imagem2.innerHTML = determinarImagenFuturas(base, indexador)
+        }
+
+        function gerarPrevisãoDia3(previsão, base) {
+            let indexador = 2
+
+            weekDay3.innerHTML = "WeekDay: " + base.forecast[indexador].weekday
+            tempMax3.innerHTML = "Max: " + base.forecast[indexador].max + " °C"
+            tempMin3.innerHTML = "Min: " + base.forecast[indexador].min + " °C"
+            data3.innerHTML = base.forecast[indexador].date
+            imagem3.innerHTML = determinarImagenFuturas(base, indexador)
+        }
+
+        function gerarPrevisãoDia4(previsão, base) {
+            let indexador = 3
+
+            weekDay4.innerHTML = "WeekDay: " + base.forecast[indexador].weekday
+            tempMax4.innerHTML = "Max: " + base.forecast[indexador].max + " °C"
+            tempMin4.innerHTML = "Min: " + base.forecast[indexador].min + " °C"
+            data4.innerHTML = base.forecast[indexador].date
+            imagem4.innerHTML = determinarImagenFuturas(base, indexador)
+        }
+
+        function gerarPrevisãoDia5(previsão, base) {
+            let indexador = 4
+
+            weekDay5.innerHTML = "WeekDay: " + base.forecast[indexador].weekday
+            tempMax5.innerHTML = "Max: " + base.forecast[indexador].max + " °C"
+            tempMin5.innerHTML = "Min: " + base.forecast[indexador].min + " °C"
+            data5.innerHTML = base.forecast[indexador].date
+            imagem5.innerHTML = determinarImagenFuturas(base, indexador)
+        }
+        
+         function determinarImagenFuturas(base, indexador) {
+
+            if (base.forecast[indexador].condition == "cloud") {
+                return nublado
+
+            } else if (base.forecast[indexador].condition == "cloudly_night") {
+                return luaEntreNuvens
+
+            } else if (base.forecast[indexador].condition == "clear_night") {
+                return lua
+
+            } else if (base.forecast[indexador].condition == "cloudly_day") {
+                return solEntreNuvens
+                
+            } else if (base.forecast[indexador].condition == "clear_day") {
+                return sol
+                
+            } else if (base.forecast[indexador].condition == "rain") {
+                return chuva
+            }
+        }
+    </script>
+</body>
+</html>

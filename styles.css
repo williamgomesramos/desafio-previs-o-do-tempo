@@ -1,0 +1,149 @@
+h6 {
+    margin: 0;
+    padding: 0;
+    }
+    h6 {
+        font-size: 100%;
+        font-weight: normal;
+        }
+        ul {
+            background-color: blueviolet;
+            font-family: 'Times New Roman', Times, serif;
+            }
+
+            button,
+            input,
+            select {
+            margin: 5;
+            }
+
+            html {
+            box-sizing: border-box;
+            }
+
+        iframe {
+            border: 5;
+            }
+
+            table {
+            border-collapse: collapse;
+            border-spacing: 5;
+            }
+
+            td,
+            th {
+            padding: 5;
+            }
+
+
+            body{
+                padding: 10px; 
+                background: top;
+                background-repeat: no-repeat;
+                background-size: 100vw;
+                background-attachment: fixed;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            fieldset{
+                display: inline;
+                background-color: blueviolet;  
+                border-color: black;
+                border-style: solid;        
+                border-radius: 5px;
+                padding-top: 5px;
+                padding-left: 2px;
+                padding-right: 2px;
+                padding-bottom: 5px;
+                margin: 5px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            
+            select{
+                margin: 2px;
+                background-color: blueviolet;
+            }
+
+            table {
+                display: inline;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                padding: 5px;  
+            }
+
+            th, tr, thead {
+                padding: 5px;
+            }
+
+            .clCidade{
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                padding: 6px;
+                margin: 5px;
+                font-size: large;
+            }
+
+            .clDiasFuturos{
+                display: inline;
+                margin: 1px;
+                border: 1px;
+                border-color: black;
+                border-style: solid;
+                border-radius: 5px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                background-color: blueviolet;
+                width: 250px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            .clDetalhes{
+                display: inline;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            .clDetalheHoje{
+                display: inline;
+                width: 300px;
+            }
+
+             .clWeekday, .clTempMin, .clTempMax{
+                display: block;
+            }
+
+            #idOutrosDias{
+                display: block;
+                padding: 0px;
+                justify-content: center;
+                text-align: center;
+                border: 0px;
+                background-color: transparent;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            #idBtChecar{
+                display: inline;
+                border: 2px;
+                border-color: rgb(85, 81, 81);
+                border-style: solid;
+                border-radius: 5px;
+                padding: 2px;
+                display: block;
+                margin: 5px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            #idBtChecar:hover{
+                background-color:blueviolet;
+            }
+            
+            
